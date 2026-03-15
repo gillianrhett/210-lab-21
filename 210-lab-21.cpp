@@ -173,22 +173,6 @@ class DoublyLinkedList {
 // Driver program
 int main() {
     srand(time(0)); // set the seed for rand()
-    /*
-    x Task. Modify the DoublyLinkedList class's push_front() and push_back() functions such 
-    that it has a Goat object as a parameter, rather than an int. 
-
-    x Task. In main(), create a DoublyLinkedList object. Append to it a random number of Goat 
-    objects, range 5-20 or so.
-
-    x Task. In main(), call your methods to print both forward and backward to show the proper 
-    traversals.
-
-    x Task. Use srand(time(0)); as one of your first lines in main() to randomize your random 
-    numbers.
-
-    x Task. Update both of the print() methods that are in the class. Both should display the 
-    text "List is empty" if the list is empty; otherwise, output the list as shown in the sample output below.
-    */
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
     // create some goats with random info using the default constructor

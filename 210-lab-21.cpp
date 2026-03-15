@@ -20,13 +20,6 @@ class Goat {
     public:
     // default constructor
     Goat() {
-        /*
-        The default constructor will randomly assign:
-        an age, 1-20
-        a name, randomly selected from the 15-element names[] array
-        a color, randomly selected from the 15-element colors[] array
-        The parameter constructor will be a typical 3-element parameter setup.
-        */
         age = (rand() % (AGE_MIN - AGE_MAX + 1)) + AGE_MIN;
         // set the name by randomly selecting from names array
         int i = (rand() % (NAMES_SIZE));

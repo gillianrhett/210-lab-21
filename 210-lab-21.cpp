@@ -138,7 +138,7 @@ class DoublyLinkedList {
         }
         cout << endl;
         while (current) {
-            cout << "\t" << current->data.getName() << "(" << 
+            cout << "\t" << current->data.getName() << " (" << 
             current->data.getColor() << ", " <<
             current->data.getAge() << ")" << endl;
             current = current->next;
@@ -154,7 +154,7 @@ class DoublyLinkedList {
         }
         cout << endl;
         while (current) {
-            cout << "\t" << current->data.getName() << "(" << 
+            cout << "\t" << current->data.getName() << " (" << 
             current->data.getColor() << ", " <<
             current->data.getAge() << ")" << endl;
             current = current->prev;
@@ -177,7 +177,7 @@ int main() {
     x Task. Modify the DoublyLinkedList class's push_front() and push_back() functions such 
     that it has a Goat object as a parameter, rather than an int. 
 
-    _ Task. In main(), create a DoublyLinkedList object. Append to it a random number of Goat 
+    x Task. In main(), create a DoublyLinkedList object. Append to it a random number of Goat 
     objects, range 5-20 or so.
 
     x Task. In main(), call your methods to print both forward and backward to show the proper 
@@ -191,11 +191,20 @@ int main() {
     */
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
-    // TODO create 5-20 goats and append them to the list
-    Goat goat1;
+    // create some goats with random info using the default constructor
+    for (int i = 0; i < 10; ++i) {
+        Goat goat; // this will make a new one each time and a copy will be saved in the list
+        list.push_back(goat);
+    }
+    // create some more goats using the parameter constructor
+    Goat goat1(10, "Timmy", "green");
     list.push_back(goat1);
-    Goat goat2;
+    Goat goat2(6, "Lana", "pink");
     list.push_back(goat2);
+    Goat goat3(21, "Ebeneezer", "blue");
+    list.push_back(goat3);
+    Goat goat4(1, "Zach", "purple");
+    list.push_back(goat4);
     cout << "List forward: ";
     list.print();
     cout << "List backward: ";

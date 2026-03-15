@@ -4,7 +4,7 @@
 #include <array>
 using namespace std;
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20; // constants from the original file
-const int NAMES_SIZE = 15, COLORS_SIZE = 15, AGE_MIN = 0, AGE_MAX = 20; // my new constants for Goat class
+const int NAMES_SIZE = 15, COLORS_SIZE = 15, AGE_MIN = 1, AGE_MAX = 20; // my new constants for Goat class
 class DoublyLinkedList {
     private:
     struct Node {
@@ -117,8 +117,11 @@ class Goat {
     int age;
     string name;
     string color;
-    string names[15] = {}; // TODO populate array with random names
-    string colors[15] = {}; // TODO populate array with random colors
+    string names[NAMES_SIZE] {"Craig", "Katina", "Mike", "Blair", "Lorene", "Sol", "Ken", "Tony",
+                        "Haley", "Leslie", "Harrison", "Tyler", "Carlene", "Sanford", "Whitney"};
+    string colors[COLORS_SIZE] = {"light brown", "red", "light gray", "medium gray", "dark gray", 
+                        "black", "white", "medium brown", "dark brown", "tan", "yellow", "orange",
+                        "spotted", "striped", "beige",}; 
 
     public:
     // default constructor
@@ -132,15 +135,40 @@ class Goat {
         */
         srand(time(0)); // set the seed for rand()
         age = (rand() % (AGE_MIN - AGE_MAX + 1)) + AGE_MIN;
-        // TODO set the name by randomly selecting from names array
+        // set the name by randomly selecting from names array
+        int i = (rand() % (NAMES_SIZE));
+        name = names[i];
+        // set the name by randomly selecting from colors array
+        i = (rand() % (COLORS_SIZE));
+        color = colors[i];
+    }
 
-        // TODO set the name by randomly selecting from colors array
-
+    // parameter constructor
+    Goat(int a, string n, string c) {
+        age = a;
+        name = n;
+        color = c;
     }
 };
 
 // Driver program
 int main() {
+    /*
+    _ Task. Modify the DoublyLinkedList class's push_front() and push_back() functions such 
+    that it has a Goat object as a parameter, rather than an int. 
+
+    _ Task. In main(), create a DoublyLinkedList object. Append to it a random number of Goat 
+    objects, range 5-20 or so.
+
+    _ Task. In main(), call your methods to print both forward and backward to show the proper 
+    traversals.
+
+    _ Task. Use srand(time(0)); as one of your first lines in main() to randomize your random 
+    numbers.
+
+    _ Task. Update both of the print() methods that are in the class. Both should display the 
+    text "List is empty" if the list is empty; otherwise, output the list as shown in the sample output below.
+    */
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
     for (int i = 0; i < size; ++i)
